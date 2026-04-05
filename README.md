@@ -24,6 +24,18 @@ ADSI combines:
 
 Sensor → API → Database → AI Model → Dashboard
 
+### Architecture Diagram
+![System Architecture](images/architecture.png)
+
+### AI Pipeline
+![AI Pipeline](images/ai_pipeline.png)
+
+### Degradation Model
+![Degradation Model](images/degradation_model.png)
+
+**Editable Draw.io Diagram:**  
+[Open full diagram](diagrams/ads_system.drawio)
+
 ## MVP Goals
 
 - Monitor temperature
@@ -32,25 +44,16 @@ Sensor → API → Database → AI Model → Dashboard
 
 ## Technologies
 
-Hardware:
-ESP32 + DHT22
-
-Backend:
-Node.js
-
-AI:
-Python + Scikit-learn
-
-Database:
-MongoDB
-
-Frontend:
-React
+**Hardware:** ESP32 + DHT22  
+**Backend:** Node.js  
+**AI:** Python + Scikit-learn  
+**Database:** MongoDB  
+**Frontend:** React
 
 ## Project Status
 
 Currently in development.
 
-Day 1 – System Requirements
-Day 2 – Dataset Design
-Day 3 – Architecture Finalization
+- Day 1 – System Requirements  
+- Day 2 – Dataset Design  
+- Day 3 – Architecture Finalization
