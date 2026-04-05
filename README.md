@@ -25,13 +25,13 @@ ADSI combines:
 Sensor → API → Database → AI Model → Dashboard
 
 ### Architecture Diagram
-![System Architecture](images/architecture.png)
+![System Architecture](diagrams/architecture.png)
 
 ### AI Pipeline
-![AI Pipeline](images/ai_pipeline.png)
+![AI Pipeline](diagrams/ai_pipeline.png)
 
 ### Degradation Model
-![Degradation Model](images/degradation_model.png)
+![Degradation Model](diagrams/degradation_model.png)
 
 **Editable Draw.io Diagram:**  
 [Open full diagram](diagrams/ads_system.drawio)
