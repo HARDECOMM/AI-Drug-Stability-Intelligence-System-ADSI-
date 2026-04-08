@@ -1,1 +1,13 @@
-venv/**/*
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+venv/
+.venv/
+models/
+outputs/logs/
+outputs/predictions/
+data/processed/
+data/interim/
+.DS_Store
+Thumbs.db
