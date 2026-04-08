@@ -1,0 +1,6 @@
+drug_name,drug_class,recommended_temp,stability_index
+Insulin,Biologic,8,5
+Amoxicillin,Antibiotic,25,4
+Paracetamol,Analgesic,30,2
+Aspirin,Analgesic,25,3
+Metformin,Antidiabetic,25,2
