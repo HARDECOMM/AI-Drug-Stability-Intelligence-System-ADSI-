@@ -1,13 +1,32 @@
+# Python
+venv/
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
-.env
-venv/
-.venv/
-models/
-outputs/logs/
-outputs/predictions/
-data/processed/
-data/interim/
+*.pyo
+*.pyd
+
+# Model / local runtime artifacts
+backend/latest_state.json
+backend/history.json
+
+# OS / editor
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
+
+# Node / Vite
+dashboard/node_modules/
+dashboard/dist/
+
+# If your frontend is still nested
+dashboard/speculomed/node_modules/
+dashboard/speculomed/dist/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+!.env.example

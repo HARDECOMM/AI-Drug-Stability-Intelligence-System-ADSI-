@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.subtitle {
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.result-card,
+.history-card {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 12px;
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #1e40af;
+}
+
+.error {
+  margin-top: 16px;
+  color: #b00020;
+  font-weight: bold;
+}
+
+.result-block p {
+  margin: 8px 0;
+}
+
+.risk-badge {
+  display: inline-block;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: bold;
+  color: white;
+}
+
+.risk-badge.small {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.risk-high {
+  background: #dc2626;
+}
+
+.risk-moderate {
+  background: #d97706;
+}
+
+.risk-low {
+  background: #16a34a;
+}
+
+.source-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.source-sensor {
+  background: #2563eb;
+}
+
+.source-manual {
+  background: #7c3aed;
+}
+
+.alert-box {
+  background: #f8fafc;
+  border-left: 5px solid #1d4ed8;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.history-table-wrapper {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.history-table th,
+.history-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.history-table th {
+  background: #f8fafc;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
