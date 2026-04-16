@@ -4,72 +4,49 @@ import random
 
 URL = "http://127.0.0.1:5000/predict"
 
-drugs = ["Insulin", "Amoxicillin", "Paracetamol", "Aspirin", "Metformin"]
-locations = [
+DRUGS = ["Insulin", "Amoxicillin", "Paracetamol", "Aspirin", "Metformin"]
+LOCATIONS = [
     "Lagos Warehouse A",
     "Abuja Transit Hub",
     "Port Harcourt Pharmacy",
     "Kano Cold Room",
-    "Enugu Distribution Center"
+    "Enugu Distribution Center",
 ]
+FACILITY_IDS = ["FAC-001", "FAC-002", "FAC-003"]
+DEVICE_IDS = ["DEV-101", "DEV-102", "DEV-103", "DEV-104"]
 
-print("Starting ADSI live simulator...")
-print("Press Ctrl+C to stop.\n")
 
-while True:
-    payload = {
-        "drug_name": random.choice(drugs),
+def generate_payload():
+    return {
+        "drug_name": random.choice(DRUGS),
         "temperature_exposure": round(random.uniform(20, 45), 2),
-        "humidity": round(random.uniform(40, 80), 2),
+        "humidity": round(random.uniform(40, 85), 2),
         "exposure_hours": round(random.uniform(1, 10), 2),
-        "location": random.choice(locations),
-        "source": "sensor"
+        "location": random.choice(LOCATIONS),
+        "source": "sensor",
+        "facility_id": random.choice(FACILITY_IDS),
+        "device_id": random.choice(DEVICE_IDS),
+        "batch_id": f"BATCH-{random.randint(1001, 1099)}",
     }
 
-    try:
-        response = requests.post(URL, json=payload)
-        print("Sent:", payload)
-        print("Received:", response.json())
-        print("-" * 60)
-    except Exception as e:
-        print("Error sending simulated data:", e)
 
-    time.sleep(5)
+def main():
+    print("Starting ADSI live simulator...")
+    print("Press Ctrl+C to stop.\n")
+
+    while True:
+        payload = generate_payload()
+
+        try:
+            response = requests.post(URL, json=payload, timeout=10)
+            print("Sent:", payload)
+            print("Received:", response.json())
+            print("-" * 80)
+        except Exception as e:
+            print("Error sending simulated data:", e)
+
+        time.sleep(5)
 
 
-# import requests
-# import time
-# import random
-
-# URL = "http://127.0.0.1:5000/predict"
-
-# drugs = ["Insulin", "Amoxicillin", "Paracetamol", "Aspirin", "Metformin"]
-# locations = [
-#     "Lagos Warehouse A",
-#     "Abuja Transit Hub",
-#     "Port Harcourt Pharmacy",
-#     "Kano Cold Room",
-#     "Enugu Distribution Center"
-# ]
-
-# print("Starting ADSI live simulator...")
-# print("Press Ctrl+C to stop.\n")
-
-# while True:
-#     payload = {
-#         "drug_name": random.choice(drugs),
-#         "temperature_exposure": round(random.uniform(20, 45), 2),
-#         "humidity": round(random.uniform(40, 80), 2),
-#         "exposure_hours": round(random.uniform(1, 10), 2),
-#         "location": random.choice(locations)
-#     }
-
-#     try:
-#         response = requests.post(URL, json=payload)
-#         print("Sent:", payload)
-#         print("Received:", response.json())
-#         print("-" * 60)
-#     except Exception as e:
-#         print("Error sending simulated data:", e)
-
-#     time.sleep(5)
+if __name__ == "__main__":
+    main()
