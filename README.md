@@ -40,7 +40,7 @@ ADSI introduces a **data-driven monitoring and decision system** that:
 Sensor → API → AI Model → Database → Dashboard → Alerts
 
 ### Architecture Diagram
-![Architecture](diagrams/architeture.drawio.png)
+![Architecture](diagrams/architecture.drawio.png)
 
 ### AI Pipeline
 ![AI Pipeline](diagrams/ai_pipeline.drawio.png)
