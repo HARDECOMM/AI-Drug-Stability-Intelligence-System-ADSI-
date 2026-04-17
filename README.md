@@ -112,13 +112,14 @@ A synthetic dataset was developed based on:
 
 ---
 
-### 📡 Latest Live Monitoring Detail
-![Latest Monitoring](assets/latest_life_monitoring.png)
+### 🧪 Manual Risk Prediction
+
+![Manual Prediction](assets/manual-risk-prediction.png)
 
 ---
 
-### 🧪 Manual Risk Prediction
-![Manual Prediction](assets/manual-risk-prediction.png)
+### 📡 Latest Live Monitoring Detail
+![Latest Monitoring](assets/latest_life_monitoring.png)
 
 ---
 

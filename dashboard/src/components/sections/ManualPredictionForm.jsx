@@ -17,7 +17,7 @@ function ManualPredictionForm({
   error,
 }) {
   return (
-    <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-sky-100/30 print:hidden">
+    <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/30 print:hidden">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h2 className="text-xl font-semibold text-slate-900">Manual Risk Prediction</h2>
@@ -36,7 +36,7 @@ function ManualPredictionForm({
           <select
             value={drugName}
             onChange={(e) => setDrugName(e.target.value)}
-            className="w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100"
+            className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
           >
             {drugs.map((drug, index) => (
               <option key={index} value={drug}>
@@ -54,7 +54,7 @@ function ManualPredictionForm({
               value={temperature}
               onChange={(e) => setTemperature(e.target.value)}
               required
-              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100/80"
+              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
             />
           </Field>
 
@@ -65,7 +65,7 @@ function ManualPredictionForm({
               value={humidity}
               onChange={(e) => setHumidity(e.target.value)}
               required
-              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100/80"
+              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
             />
           </Field>
         </div>
@@ -78,7 +78,7 @@ function ManualPredictionForm({
               value={exposureHours}
               onChange={(e) => setExposureHours(e.target.value)}
               required
-              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100/80"
+              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
             />
           </Field>
 
@@ -88,7 +88,7 @@ function ManualPredictionForm({
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="e.g. Lagos Warehouse A"
-              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-sky-400 focus:ring-4 focus:ring-sky-100/80"
+              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
             />
           </Field>
         </div>
@@ -96,7 +96,7 @@ function ManualPredictionForm({
         <button
           type="submit"
           disabled={loadingPrediction}
-          className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500 px-5 py-3.5 font-medium text-white shadow-xl shadow-blue-200/40 hover:scale-[1.01] disabled:opacity-60"
+          className="mt-2 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 px-5 py-3.5 font-medium text-white shadow-xl shadow-teal-200/40 hover:scale-[1.01] disabled:opacity-60"
         >
           {loadingPrediction ? "Predicting..." : "Predict Risk"}
         </button>

@@ -1,6 +1,6 @@
 function LocationRiskOverview({ locationSummary }) {
   return (
-    <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-indigo-100/25">
+    <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/25">
       <div className="mb-5">
         <h2 className="text-xl font-semibold text-slate-900">Location Risk Overview</h2>
         <p className="mt-1 text-sm text-slate-500">
@@ -11,10 +11,13 @@ function LocationRiskOverview({ locationSummary }) {
       {locationSummary.length > 0 ? (
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {locationSummary.slice(0, 6).map((loc, index) => (
-            <div key={index} className="rounded-2xl glass-card p-4 shadow-sm shadow-sky-100/25 hover:shadow-lg hover:scale-[1.01]">
+            <div
+              key={index}
+              className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/25 hover:shadow-lg hover:scale-[1.01]"
+            >
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="font-semibold text-slate-900">{loc.location}</h3>
-                <span className="rounded-full bg-gradient-to-r from-sky-100 to-indigo-100 px-3 py-1 text-xs font-medium text-sky-700">
+                <span className="rounded-full bg-gradient-to-r from-teal-100 to-cyan-100 px-3 py-1 text-xs font-medium text-teal-700">
                   {loc.total} events
                 </span>
               </div>

@@ -4,7 +4,7 @@ function TopBar({ onExportCsv, onPrint }) {
   return (
     <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between print:mb-4">
       <div>
-        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 print:hidden">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-medium text-teal-700 print:hidden">
           <Activity className="h-3.5 w-3.5" />
           Real-time pharmaceutical monitoring
         </div>
@@ -22,7 +22,7 @@ function TopBar({ onExportCsv, onPrint }) {
       <div className="flex flex-wrap gap-3 print:hidden">
         <button
           onClick={onExportCsv}
-          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-50"
+          className="inline-flex items-center gap-2 rounded-2xl glass-card px-4 py-3 text-sm font-medium text-slate-700 shadow-lg shadow-teal-100/30 hover:scale-[1.01]"
         >
           <Download className="h-4 w-4" />
           Export CSV
@@ -30,7 +30,7 @@ function TopBar({ onExportCsv, onPrint }) {
 
         <button
           onClick={onPrint}
-          className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-sky-500 to-indigo-500 px-4 py-3 text-sm font-medium text-white shadow-lg shadow-sky-200 transition hover:scale-[1.01]"
+          className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-teal-400 via-cyan-500 to-emerald-500 px-4 py-3 text-sm font-medium text-white shadow-xl shadow-teal-200/40 hover:scale-[1.01]"
         >
           <Printer className="h-4 w-4" />
           Print / Save PDF

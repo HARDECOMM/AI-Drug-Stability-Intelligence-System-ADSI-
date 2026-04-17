@@ -1,6 +1,6 @@
 function MonitoringHistoryTable({ history, sourceTone, riskTone }) {
   return (
-    <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-indigo-100/20">
+    <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/20">
       <div className="mb-5">
         <h2 className="text-xl font-semibold text-slate-900">Recent Monitoring History</h2>
         <p className="mt-1 text-sm text-slate-500">

@@ -65,12 +65,12 @@ function DashboardPage() {
       try {
         const latest = await fetchLatest();
         setLiveResult(latest);
-      } catch { }
+      } catch {}
 
       try {
         const historyData = await fetchHistory();
         setHistory(historyData.history || []);
-      } catch { }
+      } catch {}
 
       setLastRefresh(new Date().toLocaleTimeString());
     };
@@ -115,7 +115,9 @@ function DashboardPage() {
     const low = history.filter((x) => x.predicted_degradation_risk === "Low").length;
     const sensor = history.filter((x) => x.source === "sensor").length;
     const manual = history.filter((x) => x.source === "manual").length;
-    const escalated = history.filter((x) => x.escalation_level === "ESCALATED CRITICAL").length;
+    const escalated = history.filter(
+      (x) => x.escalation_level === "ESCALATED CRITICAL"
+    ).length;
 
     const drugCounts = {};
     history.forEach((item) => {
@@ -210,8 +212,8 @@ function DashboardPage() {
           item.predicted_degradation_risk === "High"
             ? 3
             : item.predicted_degradation_risk === "Moderate"
-              ? 2
-              : 1,
+            ? 2
+            : 1,
       }));
   }, [history]);
 
@@ -272,46 +274,78 @@ function DashboardPage() {
             />
 
             {result && (
-              <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-sky-100/25 print:hidden">
+              <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/25 print:hidden">
                 <div className="mb-5 flex items-center justify-between">
                   <div>
-                    <h2 className="text-xl font-semibold text-slate-900">Manual Prediction Result</h2>
+                    <h2 className="text-xl font-semibold text-slate-900">
+                      Manual Prediction Result
+                    </h2>
                     <p className="mt-1 text-sm text-slate-500">
-                      Decision-ready output for the submitted scenario.
+                      Decision-ready output for the submitted manual scenario.
                     </p>
                   </div>
-                  <span className={`inline-flex rounded-full px-3 py-1 text-xs font-medium ${sourceTone(result.source)}`}>
+
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-xs font-medium ${sourceTone(
+                      result.source
+                    )}`}
+                  >
                     {result.source}
                   </span>
                 </div>
 
                 <div className="grid gap-3 lg:grid-cols-2">
-                  <div className="rounded-2xl glass-card p-4">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">Drug</div>
-                    <div className="text-sm font-medium text-slate-900">{result.drug_name}</div>
+                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
+                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
+                      Drug
+                    </div>
+                    <div className="text-sm font-medium text-slate-900">
+                      {result.drug_name}
+                    </div>
                   </div>
 
-                  <div className="rounded-2xl glass-card p-4">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">Location</div>
-                    <div className="text-sm font-medium text-slate-900">{result.location}</div>
+                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
+                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
+                      Location
+                    </div>
+                    <div className="text-sm font-medium text-slate-900">
+                      {result.location}
+                    </div>
                   </div>
 
-                  <div className="rounded-2xl glass-card p-4">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">Urgency</div>
-                    <div className="text-sm font-medium text-slate-900">{result.urgency}</div>
+                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
+                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
+                      Urgency
+                    </div>
+                    <div className="text-sm font-medium text-slate-900">
+                      {result.urgency}
+                    </div>
                   </div>
 
-                  <div className="rounded-2xl glass-card p-4">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">Class</div>
-                    <div className="text-sm font-medium text-slate-900">{result.drug_class}</div>
+                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
+                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
+                      Drug Class
+                    </div>
+                    <div className="text-sm font-medium text-slate-900">
+                      {result.drug_class}
+                    </div>
                   </div>
                 </div>
 
                 <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <div className={`inline-flex rounded-full px-4 py-2 text-sm font-semibold ${riskTone(result.predicted_degradation_risk)}`}>
+                  <div
+                    className={`inline-flex rounded-full px-4 py-2 text-sm font-semibold ${riskTone(
+                      result.predicted_degradation_risk
+                    )}`}
+                  >
                     {result.predicted_degradation_risk} Risk
                   </div>
-                  <div className={`rounded-2xl border px-4 py-3 ${complianceTone(result.compliance_status)}`}>
+
+                  <div
+                    className={`rounded-2xl border px-4 py-3 ${complianceTone(
+                      result.compliance_status
+                    )}`}
+                  >
                     <strong>Compliance:</strong> {result.compliance_status}
                   </div>
                 </div>
@@ -325,11 +359,12 @@ function DashboardPage() {
                 </div>
 
                 <div className="mt-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-slate-700">
-                  <strong>Repeated Non-Compliance Count:</strong> {result.repeated_non_compliance_count}
+                  <strong>Repeated Non-Compliance Count:</strong>{" "}
+                  {result.repeated_non_compliance_count}
                 </div>
 
                 {result.threshold_breaches && result.threshold_breaches.length > 0 && (
-                  <div className="mt-3 rounded-2xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-amber-700">
+                  <div className="mt-3 rounded-2xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-amber-700 shadow-sm shadow-amber-100/30">
                     <strong>Threshold Breaches:</strong>
                     <ul className="mt-2 list-disc pl-5">
                       {result.threshold_breaches.map((breach, index) => (
@@ -339,7 +374,7 @@ function DashboardPage() {
                   </div>
                 )}
 
-                <div className="mt-4 rounded-2xl border border-sky-200/70 bg-sky-50/90 px-4 py-3 text-sky-700">
+                <div className="mt-4 rounded-2xl border border-teal-200/70 bg-teal-50/90 px-4 py-3 text-teal-700 shadow-sm shadow-teal-100/30">
                   <strong>Alert:</strong> {result.alert}
                 </div>
 
@@ -360,9 +395,9 @@ function DashboardPage() {
 
         <TrendCharts trendData={trendData} />
 
-        <section className="mt-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+        <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/20">
           <div className="mb-5 flex items-center gap-2">
-            <LineChartIcon className="h-5 w-5 text-sky-600" />
+            <LineChartIcon className="h-5 w-5 text-teal-600" />
             <h2 className="text-xl font-semibold text-slate-900">Risk Distribution</h2>
           </div>
 

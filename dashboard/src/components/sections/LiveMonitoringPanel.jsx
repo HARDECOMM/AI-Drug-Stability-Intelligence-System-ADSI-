@@ -12,7 +12,7 @@ import InfoTile from "../InfoTile";
 
 function LiveMonitoringPanel({ liveResult, riskTone, complianceTone, sourceTone }) {
   return (
-    <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-indigo-100/30">
+    <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/30">
       <div className="mb-6 flex items-center justify-between">
         <div>
           <h2 className="text-xl font-semibold text-slate-900">Latest Live Monitoring</h2>
@@ -64,7 +64,7 @@ function LiveMonitoringPanel({ liveResult, riskTone, complianceTone, sourceTone 
           </div>
 
           {liveResult.threshold_breaches && liveResult.threshold_breaches.length > 0 && (
-            <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-amber-700">
+            <div className="rounded-2xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-amber-700 shadow-sm shadow-amber-100/30">
               <strong>Threshold Breaches:</strong>
               <ul className="mt-2 list-disc pl-5">
                 {liveResult.threshold_breaches.map((breach, index) => (
@@ -74,11 +74,11 @@ function LiveMonitoringPanel({ liveResult, riskTone, complianceTone, sourceTone 
             </div>
           )}
 
-          <div className="rounded-2xl border border-sky-200/70 bg-sky-50/90 px-4 py-3 text-sky-700 shadow-sm shadow-sky-100/30">
+          <div className="rounded-2xl border border-teal-200/70 bg-teal-50/90 px-4 py-3 text-teal-700 shadow-sm shadow-teal-100/30">
             <strong>Alert:</strong> {liveResult.alert}
           </div>
 
-          <div className="rounded-2xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-amber-700 shadow-sm shadow-amber-100/30">
+          <div className="rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-slate-700">
             <strong>Recommended Action:</strong> {liveResult.recommended_action}
           </div>
         </div>

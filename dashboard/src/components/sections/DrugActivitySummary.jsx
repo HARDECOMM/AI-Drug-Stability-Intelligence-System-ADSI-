@@ -2,9 +2,9 @@ import { Database } from "lucide-react";
 
 function DrugActivitySummary({ drugCounts }) {
   return (
-    <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-sky-100/20">
+    <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/20">
       <div className="mb-5 flex items-center gap-2">
-        <Database className="h-5 w-5 text-sky-600" />
+        <Database className="h-5 w-5 text-teal-600" />
         <h2 className="text-xl font-semibold text-slate-900">Drug Activity Summary</h2>
       </div>
 

@@ -5,7 +5,7 @@ function ReportSummary({ apiStatus, lastRefresh, liveResult }) {
   return (
     <>
       <div className="mb-6 grid gap-3 sm:grid-cols-3 print:mb-4">
-        <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+        <div className="rounded-2xl glass-card px-4 py-3 shadow-lg shadow-teal-100/20">
           <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
             <Server className="h-3.5 w-3.5" />
             Backend
@@ -15,7 +15,7 @@ function ReportSummary({ apiStatus, lastRefresh, liveResult }) {
           </div>
         </div>
 
-        <div className="rounded-2xl glass-card px-4 py-3 shadow-lg shadow-sky-100/20">
+        <div className="rounded-2xl glass-card px-4 py-3 shadow-lg shadow-teal-100/20">
           <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
             <RefreshCw className="h-3.5 w-3.5" />
             Last refresh
@@ -23,7 +23,7 @@ function ReportSummary({ apiStatus, lastRefresh, liveResult }) {
           <div className="text-slate-900">{lastRefresh || "Waiting..."}</div>
         </div>
 
-        <div className="rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
+        <div className="rounded-2xl glass-card px-4 py-3 shadow-lg shadow-teal-100/20">
           <div className="mb-1 flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
             <FileText className="h-3.5 w-3.5" />
             Report Mode
@@ -32,9 +32,9 @@ function ReportSummary({ apiStatus, lastRefresh, liveResult }) {
         </div>
       </div>
 
-      <section className="mb-6 rounded-3xl glass-strong p-6 shadow-xl shadow-indigo-100/25 print:shadow-none">
+      <section className="mb-6 rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/25 print:shadow-none">
         <div className="mb-4 flex items-center gap-2">
-          <FileText className="h-5 w-5 text-sky-600" />
+          <FileText className="h-5 w-5 text-teal-600" />
           <h2 className="text-xl font-semibold text-slate-900">Operational Report Summary</h2>
         </div>
 
