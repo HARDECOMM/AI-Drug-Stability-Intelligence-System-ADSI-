@@ -8,7 +8,6 @@ import json
 from datetime import datetime
 
 allowed_origins = ["http://localhost:5173"]
-
 frontend_url = os.getenv("FRONTEND_URL")
 if frontend_url:
     allowed_origins.append(frontend_url)
