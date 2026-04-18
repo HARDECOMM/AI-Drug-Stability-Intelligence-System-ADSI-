@@ -107,19 +107,13 @@ A synthetic dataset was developed based on:
 
 ---
 
-### 🔴 Live Monitoring (Sensor Data)
-![Live Monitoring](assets/live-monitoring.png)
-
----
-
-### 🧪 Manual Risk Prediction
-
-![Manual Prediction](assets/manual-risk-prediction.png)
+### 🔴 Manual Risk Prediction & Live Monitoring (Sensor Data)
+![Live Monitoring](assets/incoming&manual.png)
 
 ---
 
 ### 📡 Latest Live Monitoring Detail
-![Latest Monitoring](assets/latest_life_monitoring.png)
+![Latest Monitoring](assets/unifiedMonitoring.png)
 
 ---
 
@@ -140,11 +134,8 @@ A synthetic dataset was developed based on:
 
 ### 📈 Environmental Trends
 
-#### Temperature Trend
-![Temperature](assets/charts-temperature.png)
-
-#### Humidity Trend
-![Humidity](assets/charts-humidity.png)
+#### Temperature & Humidity Charts
+![Temperature](assets/tem&humChart.png)
 
 ---
 

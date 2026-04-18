@@ -7,6 +7,7 @@ import AlertCenter from "../components/sections/AlertCenter";
 import ReportSummary from "../components/sections/ReportSummary";
 import ManualPredictionForm from "../components/sections/ManualPredictionForm";
 import LiveMonitoringPanel from "../components/sections/LiveMonitoringPanel";
+import UnifiedAssessmentPanel from "../components/sections/UnifiedAssessmentPanel";
 import TrendCharts from "../components/sections/TrendCharts";
 import LocationRiskOverview from "../components/sections/LocationRiskOverview";
 import InspectionPriorityPanel from "../components/sections/InspectionPriorityPanel";
@@ -236,6 +237,8 @@ function DashboardPage() {
       ? "bg-sky-100 text-sky-700 ring-1 ring-sky-200"
       : "bg-violet-100 text-violet-700 ring-1 ring-violet-200";
 
+  const unifiedResult = result || liveResult;
+
   return (
     <div className="min-h-screen text-slate-900">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 print:max-w-none print:px-0 print:py-2">
@@ -254,144 +257,41 @@ function DashboardPage() {
 
         <AlertCenter alerts={metrics.alertCenter} riskTone={riskTone} />
 
-        <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr] print:grid-cols-1">
-          <div className="space-y-6">
-            <ManualPredictionForm
-              drugs={drugs}
-              drugName={drugName}
-              setDrugName={setDrugName}
-              temperature={temperature}
-              setTemperature={setTemperature}
-              humidity={humidity}
-              setHumidity={setHumidity}
-              exposureHours={exposureHours}
-              setExposureHours={setExposureHours}
-              location={location}
-              setLocation={setLocation}
-              handleSubmit={handleSubmit}
-              loadingPrediction={loadingPrediction}
-              error={error}
-            />
-
-            {result && (
-              <section className="rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/25 print:hidden">
-                <div className="mb-5 flex items-center justify-between">
-                  <div>
-                    <h2 className="text-xl font-semibold text-slate-900">
-                      Manual Prediction Result
-                    </h2>
-                    <p className="mt-1 text-sm text-slate-500">
-                      Decision-ready output for the submitted manual scenario.
-                    </p>
-                  </div>
-
-                  <span
-                    className={`inline-flex rounded-full px-3 py-1 text-xs font-medium ${sourceTone(
-                      result.source
-                    )}`}
-                  >
-                    {result.source}
-                  </span>
-                </div>
-
-                <div className="grid gap-3 lg:grid-cols-2">
-                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
-                      Drug
-                    </div>
-                    <div className="text-sm font-medium text-slate-900">
-                      {result.drug_name}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
-                      Location
-                    </div>
-                    <div className="text-sm font-medium text-slate-900">
-                      {result.location}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
-                      Urgency
-                    </div>
-                    <div className="text-sm font-medium text-slate-900">
-                      {result.urgency}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
-                    <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
-                      Drug Class
-                    </div>
-                    <div className="text-sm font-medium text-slate-900">
-                      {result.drug_class}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <div
-                    className={`inline-flex rounded-full px-4 py-2 text-sm font-semibold ${riskTone(
-                      result.predicted_degradation_risk
-                    )}`}
-                  >
-                    {result.predicted_degradation_risk} Risk
-                  </div>
-
-                  <div
-                    className={`rounded-2xl border px-4 py-3 ${complianceTone(
-                      result.compliance_status
-                    )}`}
-                  >
-                    <strong>Compliance:</strong> {result.compliance_status}
-                  </div>
-                </div>
-
-                <div className="mt-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-slate-700">
-                  <strong>Escalation Level:</strong> {result.escalation_level}
-                </div>
-
-                <div className="mt-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-slate-700">
-                  <strong>Breach Status:</strong> {result.breach_status}
-                </div>
-
-                <div className="mt-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-slate-700">
-                  <strong>Repeated Non-Compliance Count:</strong>{" "}
-                  {result.repeated_non_compliance_count}
-                </div>
-
-                {result.threshold_breaches && result.threshold_breaches.length > 0 && (
-                  <div className="mt-3 rounded-2xl border border-amber-200/80 bg-amber-50/90 px-4 py-3 text-amber-700 shadow-sm shadow-amber-100/30">
-                    <strong>Threshold Breaches:</strong>
-                    <ul className="mt-2 list-disc pl-5">
-                      {result.threshold_breaches.map((breach, index) => (
-                        <li key={index}>{breach}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                <div className="mt-4 rounded-2xl border border-teal-200/70 bg-teal-50/90 px-4 py-3 text-teal-700 shadow-sm shadow-teal-100/30">
-                  <strong>Alert:</strong> {result.alert}
-                </div>
-
-                <div className="mt-3 rounded-2xl border border-white/50 bg-white/70 px-4 py-3 text-slate-700">
-                  <strong>Recommended Action:</strong> {result.recommended_action}
-                </div>
-              </section>
-            )}
-          </div>
+        <div className="grid gap-6 xl:grid-cols-2 print:grid-cols-1">
+          <ManualPredictionForm
+            drugs={drugs}
+            drugName={drugName}
+            setDrugName={setDrugName}
+            temperature={temperature}
+            setTemperature={setTemperature}
+            humidity={humidity}
+            setHumidity={setHumidity}
+            exposureHours={exposureHours}
+            setExposureHours={setExposureHours}
+            location={location}
+            setLocation={setLocation}
+            handleSubmit={handleSubmit}
+            loadingPrediction={loadingPrediction}
+            error={error}
+          />
 
           <LiveMonitoringPanel
             liveResult={liveResult}
             riskTone={riskTone}
             complianceTone={complianceTone}
             sourceTone={sourceTone}
+            title="Incoming Sensor Data"
+            subtitle="Current automated stream from live simulator or sensor feed."
+            badge="Sensor Input"
           />
         </div>
+
+        <UnifiedAssessmentPanel
+          unifiedResult={unifiedResult}
+          riskTone={riskTone}
+          complianceTone={complianceTone}
+          sourceTone={sourceTone}
+        />
 
         <TrendCharts trendData={trendData} />
 
@@ -409,7 +309,7 @@ function DashboardPage() {
         <LocationRiskOverview locationSummary={metrics.locationSummary} />
         <InspectionPriorityPanel alerts={metrics.alertCenter} />
 
-        <div className="mt-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr] print:grid-cols-1">
+        <div className="mt-6">
           <DrugActivitySummary drugCounts={metrics.drugCounts} />
         </div>
 
