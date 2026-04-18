@@ -19,8 +19,8 @@ function TrendCharts({ trendData }) {
           <h2 className="text-xl font-semibold text-slate-900">Temperature Trend</h2>
         </div>
 
-        <div className="h-72">
-          <ResponsiveContainer width="100%" height="100%">
+        <div className="h-72 min-w-0 min-h-0">
+          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
             <LineChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="time" />
@@ -39,8 +39,8 @@ function TrendCharts({ trendData }) {
           <h2 className="text-xl font-semibold text-slate-900">Humidity Trend</h2>
         </div>
 
-        <div className="h-72">
-          <ResponsiveContainer width="100%" height="100%">
+        <div className="h-72 min-w-0 min-h-0">
+          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
             <LineChart data={trendData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="time" />

@@ -306,7 +306,7 @@ function DashboardPage() {
 
         <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/20">
           <div className="mb-5 flex items-center gap-2">
-            <LineChart asLineChartIcon className="h-5 w-5 text-teal-600" />
+            <LineChartIcon className="h-5 w-5 text-teal-600" />
             <h2 className="text-xl font-semibold text-slate-900">Risk Distribution</h2>
           </div>
 
