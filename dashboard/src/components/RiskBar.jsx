@@ -1,13 +1,19 @@
 function RiskBar({ label, value, max, color }) {
-  const width = `${(value / max) * 100}%`;
+  const percentage = max > 0 ? (value / max) * 100 : 0;
 
   return (
-    <div className="mb-4 grid grid-cols-[90px_1fr_50px] items-center gap-3">
-      <span className="font-medium text-slate-700">{label}</span>
-      <div className="h-4 overflow-hidden rounded-full bg-slate-200">
-        <div className={`h-full rounded-full ${color}`} style={{ width }} />
+    <div className="mb-4">
+      <div className="mb-1 flex items-center justify-between text-sm">
+        <span className="text-slate-600">{label}</span>
+        <span className="font-medium text-slate-800">{value}</span>
       </div>
-      <span className="text-right font-semibold text-slate-900">{value}</span>
+
+      <div className="h-3 w-full overflow-hidden rounded-full bg-slate-100">
+        <div
+          className={`h-full rounded-full transition-all duration-500 ${color}`}
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
     </div>
   );
 }
