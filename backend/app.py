@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
@@ -6,8 +7,14 @@ from pathlib import Path
 import json
 from datetime import datetime
 
+allowed_origins = ["http://localhost:5173"]
+
+frontend_url = os.getenv("FRONTEND_URL")
+if frontend_url:
+    allowed_origins.append(frontend_url)
+
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 MODEL_PATH = BASE_DIR / "ai-model" / "model.pkl"
