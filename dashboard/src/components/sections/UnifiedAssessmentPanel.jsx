@@ -29,7 +29,6 @@ function UnifiedAssessmentPanel({
 
       {unifiedResult ? (
         <>
-          {/* Top summary grid */}
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <div className="rounded-2xl glass-card p-4 shadow-sm shadow-teal-100/20">
               <div className="mb-2 text-xs uppercase tracking-wide text-slate-500">
@@ -68,7 +67,6 @@ function UnifiedAssessmentPanel({
             </div>
           </div>
 
-          {/* Risk and compliance */}
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             <div
               className={`rounded-2xl px-4 py-4 text-sm font-semibold ${riskTone(
@@ -87,7 +85,6 @@ function UnifiedAssessmentPanel({
             </div>
           </div>
 
-          {/* Detail grid */}
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-white/50 bg-white/70 px-4 py-4 text-slate-700">
               <strong>Escalation Level:</strong> {unifiedResult.escalation_level}
