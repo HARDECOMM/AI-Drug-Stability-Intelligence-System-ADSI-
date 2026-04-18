@@ -12,6 +12,12 @@ function ManualPredictionForm({
   setExposureHours,
   location,
   setLocation,
+  facilityId,
+  setFacilityId,
+  batchId,
+  setBatchId,
+  deviceId,
+  setDeviceId,
   handleSubmit,
   loadingPrediction,
   error,
@@ -24,10 +30,12 @@ function ManualPredictionForm({
           <p className="mt-1 text-sm text-slate-500">
             Test a pharmacy or warehouse condition manually.
           </p>
-          <p className="mt-1 text-xs text-slate-500">Selected drug: {drugName || "None"}</p>
+          <p className="mt-1 text-xs text-slate-500">
+            Selected drug: {drugName || "None"}
+          </p>
         </div>
         <div className="rounded-full border border-white/50 bg-white/70 px-3 py-1 text-xs text-slate-600">
-          Operator Input
+          Manual Input Source
         </div>
       </div>
 
@@ -88,10 +96,45 @@ function ManualPredictionForm({
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="e.g. Lagos Warehouse A"
+              required
               className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
             />
           </Field>
         </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
+          <Field label="Facility ID">
+            <input
+              type="text"
+              value={facilityId}
+              onChange={(e) => setFacilityId(e.target.value)}
+              placeholder="e.g. FAC-002"
+              required
+              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
+            />
+          </Field>
+
+          <Field label="Batch ID">
+            <input
+              type="text"
+              value={batchId}
+              onChange={(e) => setBatchId(e.target.value)}
+              placeholder="e.g. BATCH-1032"
+              required
+              className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
+            />
+          </Field>
+        </div>
+
+        <Field label="Source ID (optional)">
+          <input
+            type="text"
+            value={deviceId}
+            onChange={(e) => setDeviceId(e.target.value)}
+            placeholder="e.g. MANUAL-ENTRY or inspector tablet ID"
+            className="w-full rounded-2xl border border-white/60 bg-white/80 px-4 py-3 text-slate-900 outline-none focus:border-teal-400 focus:ring-4 focus:ring-teal-100/80"
+          />
+        </Field>
 
         <button
           type="submit"

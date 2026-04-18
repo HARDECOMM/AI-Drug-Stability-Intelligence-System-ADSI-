@@ -31,6 +31,9 @@ function DashboardPage() {
   const [humidity, setHumidity] = useState("");
   const [exposureHours, setExposureHours] = useState("");
   const [location, setLocation] = useState("");
+  const [facilityId, setFacilityId] = useState("");
+  const [batchId, setBatchId] = useState("");
+  const [deviceId, setDeviceId] = useState("");
   const [result, setResult] = useState(null);
   const [liveResult, setLiveResult] = useState(null);
   const [history, setHistory] = useState([]);
@@ -95,9 +98,9 @@ function DashboardPage() {
         exposure_hours: parseFloat(exposureHours),
         location: location || "Manual Dashboard Input",
         source: "manual",
-        facility_id: "FAC-MANUAL",
-        device_id: "MANUAL-ENTRY",
-        batch_id: "BATCH-MANUAL",
+        facility_id: facilityId || "FAC-MANUAL",
+        device_id: deviceId || "MANUAL-ENTRY",
+        batch_id: batchId || "BATCH-MANUAL",
       });
 
       setResult(data);
@@ -270,6 +273,12 @@ function DashboardPage() {
             setExposureHours={setExposureHours}
             location={location}
             setLocation={setLocation}
+            facilityId={facilityId}
+            setFacilityId={setFacilityId}
+            batchId={batchId}
+            setBatchId={setBatchId}
+            deviceId={deviceId}
+            setDeviceId={setDeviceId}
             handleSubmit={handleSubmit}
             loadingPrediction={loadingPrediction}
             error={error}
@@ -297,7 +306,7 @@ function DashboardPage() {
 
         <section className="mt-6 rounded-3xl glass-strong p-6 shadow-xl shadow-teal-100/20">
           <div className="mb-5 flex items-center gap-2">
-            <LineChartIcon className="h-5 w-5 text-teal-600" />
+            <LineChart asLineChartIcon className="h-5 w-5 text-teal-600" />
             <h2 className="text-xl font-semibold text-slate-900">Risk Distribution</h2>
           </div>
 
