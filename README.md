@@ -222,4 +222,94 @@ Unlike existing systems, ADSI:
 ## 👤 Author
 
 Haruna Ademoye  
-AI/ML Engineer | Pharmaceutical Technology  
+AI/ML Engineer | Pharmaceutical Technology
+
+---
+
+## 🚀 How to Run
+
+### Prerequisites
+
+- Python 3.8+
+- Node.js 18+
+- npm or yarn
+
+### Step 1: Set Up Python Environment
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+
+# Install backend dependencies
+cd backend
+pip install -r requirements.txt
+```
+
+### Step 2: Set Up Frontend
+
+```bash
+# Navigate to dashboard
+cd dashboard
+
+# Install dependencies
+npm install
+
+# Or if using yarn:
+yarn install
+```
+
+### Step 3: Run the System
+
+You need **3 terminal windows**:
+
+**Terminal 1 — Backend API:**
+```bash
+cd backend
+python app.py
+```
+> Server runs at: `http://localhost:5000`
+
+**Terminal 2 — Frontend Dashboard:**
+```bash
+cd dashboard
+npm run dev
+```
+> Dashboard opens at: `http://localhost:5173`
+
+**Terminal 3 — Sensor Simulator (Optional):**
+```bash
+cd backend
+python simulator.py
+```
+> This generates continuous sensor data for live monitoring demo
+
+---
+
+### Quick Test
+
+1. Open `http://localhost:5173` in your browser
+2. Use the manual prediction form (left panel):
+   - Drug: Insulin
+   - Temperature: 35
+   - Humidity: 60
+   - Hours: 3
+   - Click **Predict**
+3. Watch the unified assessment result appear
+4. Or wait for simulator data to appear in the live monitoring panel
+
+---
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| CORS error | Ensure backend runs on port 5000 |
+| Model not found | Run `python train_model.py` first |
+| Simulator not connecting | Check backend is running |
+| Port already in use | Kill process on port 5000 or 5173 |  
