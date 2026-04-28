@@ -109,7 +109,11 @@ Backend: https://your-backend.onrender.com
 
 https://youtube.com/your-video-link  
 
----
+## Pitch Deck
+
+See /pitch/ADSI_Pitch_Deck.pdf
+
+## Research Paper
 
 ## 📊 Results & Dashboard Output
 
