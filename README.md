@@ -100,6 +100,17 @@ A synthetic dataset was developed based on:
 
 ---
 
+## Live Demo
+
+Frontend: https://your-frontend.vercel.app  
+Backend: https://your-backend.onrender.com  
+
+## Demo Video
+
+https://youtube.com/your-video-link  
+
+---
+
 ## 📊 Results & Dashboard Output
 
 ### 🖥️ Full Dashboard Overview
